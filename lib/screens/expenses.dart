@@ -24,9 +24,25 @@ class _ExpenseScreenState extends State<ExpenseScreen> {
         date: DateTime.now(),
         category: Category.lesier),
   ];
+
+  void _openAddExpenseOvelay(){
+
+    showModalBottomSheet(context: context, builder: (cont){
+      return const Text('Model bottom sheet');
+    });
+
+  }
   @override
   Widget build(BuildContext context) {
     return   Scaffold(
+      appBar: AppBar(
+        title:const  Text('Expense Tracker'),
+        centerTitle: true,
+        actions: [
+          IconButton(onPressed: _openAddExpenseOvelay,
+              icon: const Icon(Icons.add)),
+        ],
+      ),
       body: Column(
         children: [
          const Text('The chart'),
